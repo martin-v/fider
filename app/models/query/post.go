@@ -34,10 +34,11 @@ type GetPostByNumber struct {
 }
 
 type SearchPosts struct {
-	Query string
-	View  string
-	Limit string
-	Tags  []string
+	Query        string
+	View         string
+	Limit        string
+	Tags         []string
+	ResponseUser string
 
 	Result []*entity.Post
 }

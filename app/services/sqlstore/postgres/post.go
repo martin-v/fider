@@ -395,6 +395,9 @@ func searchPosts(ctx context.Context, q *query.SearchPosts) error {
 			}), ToTSQuery(q.Query), SanitizeString(q.Query))
 		} else {
 			condition, statuses, sort := getViewData(q.View)
+			if q.ResponseUser != "" {
+				condition += " AND response_user = '" + SanitizeString(q.ResponseUser) + "' "
+			}
 			sql := fmt.Sprintf(`
 				SELECT * FROM (%s) AS q 
 				WHERE tags @> $3 %s

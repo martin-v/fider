@@ -17,10 +17,11 @@ func Index() web.HandlerFunc {
 		c.SetCanonicalURL("")
 
 		searchPosts := &query.SearchPosts{
-			Query: c.QueryParam("query"),
-			View:  c.QueryParam("view"),
-			Limit: c.QueryParam("limit"),
-			Tags:  c.QueryParamAsArray("tags"),
+			Query:        c.QueryParam("query"),
+			View:         c.QueryParam("view"),
+			Limit:        c.QueryParam("limit"),
+			Tags:         c.QueryParamAsArray("tags"),
+			ResponseUser: c.QueryParam("response-user"),
 		}
 		getAllTags := &query.GetAllTags{}
 		countPerStatus := &query.CountPostPerStatus{}
