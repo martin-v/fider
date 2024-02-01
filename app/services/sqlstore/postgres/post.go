@@ -396,7 +396,7 @@ func searchPosts(ctx context.Context, q *query.SearchPosts) error {
 		} else {
 			condition, statuses, sort := getViewData(q.View)
 			if q.ResponseUser != "" {
-				condition += " AND response_user = '" + SanitizeString(q.ResponseUser) + "' "
+				condition += " AND response_user_name = '" + SanitizeString(q.ResponseUser) + "' "
 			}
 			sql := fmt.Sprintf(`
 				SELECT * FROM (%s) AS q 
