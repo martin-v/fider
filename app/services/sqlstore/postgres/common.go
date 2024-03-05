@@ -45,6 +45,9 @@ func getViewData(view string) (string, []enum.PostStatus, string) {
 		sort = "votes_count"
 	case "most-discussed":
 		sort = "comments_count"
+	case "open":
+		sort = "response_date"
+		statuses = []enum.PostStatus{enum.PostOpen}
 	case "planned":
 		sort = "response_date"
 		statuses = []enum.PostStatus{enum.PostPlanned}
